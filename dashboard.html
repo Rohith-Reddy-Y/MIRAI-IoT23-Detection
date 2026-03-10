@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIRAI — IoT-23 Malware Detection System</title>
+  <meta name="description" content="Two-stage IoT malware detection using XGBoost ensemble with attack variant identification">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+
+<body>
+  <!-- Hero Header -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">🛡️ Two-Stage Detection Engine</div>
+      <h1 class="hero-title">MIRAI <span class="hero-thin">Detection System</span></h1>
+      <p class="hero-subtitle">IoT-23 Malware Detection with Attack Variant Identification</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="h-models">—</span>
+          <span class="hero-stat-label">Binary Models Selected</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="h-multi">—</span>
+          <span class="hero-stat-label">Variant Models Selected</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="h-variants">—</span>
+          <span class="hero-stat-label">Attack Variants</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="h-rows">—</span>
+          <span class="hero-stat-label">Rows Trained</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Pipeline Section -->
+  <section>
+    <div class="container">
+      <h2 class="section-title"><span class="icon">⚡</span> ML Pipeline Architecture</h2>
+      <p class="section-desc">End-to-end data processing and two-stage model training pipeline</p>
+      <div class="pipeline" id="pipeline"></div>
+    </div>
+  </section>
+
+  <!-- Model Performance -->
+  <section>
+    <div class="container">
+      <h2 class="section-title"><span class="icon">📊</span> Model Performance Overview</h2>
+      <p class="section-desc">Binary detection accuracy and multiclass variant classification across all 23 datasets</p>
+
+      <div class="stats-grid" id="summaryStats">
+        <div class="stat-card glass"><span class="value" id="s-trained">—</span><span class="label">Models Trained</span></div>
+        <div class="stat-card glass"><span class="value" id="s-avgauc">—</span><span class="label">Avg ROC-AUC</span></div>
+        <div class="stat-card glass"><span class="value" id="s-bestacc">—</span><span class="label">Best Accuracy</span></div>
+        <div class="stat-card glass"><span class="value" id="s-rows">—</span><span class="label">Total Rows</span></div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-card glass">
+          <h3>🎯 Binary Detection (ROC-AUC per Dataset)</h3>
+          <canvas id="aucChart"></canvas>
+        </div>
+        <div class="chart-card glass">
+          <h3>🧬 Multiclass Variant Accuracy</h3>
+          <canvas id="multiAccChart"></canvas>
+        </div>
+      </div>
+
+      <div class="table-wrapper glass">
+        <table>
+          <thead id="perfTHead"></thead>
+          <tbody id="perfTBody"></tbody>
+        </table>
+      </div>
+
+      <div class="glass" style="margin-top:24px;padding:24px;border-radius:var(--radius);border-left:4px solid var(--cyan)">
+        <h3 style="color:var(--cyan);margin-bottom:12px">🎯 Model Selection Criteria</h3>
+        <p style="color:var(--text-dim);line-height:1.8;font-size:14px">
+          <strong style="color:var(--green)">Binary stage (Stage 1):</strong> Only models with <strong>ROC-AUC &gt; 0.85</strong> are used for malware detection (8 of 20 trained models).
+          Models trained on extremely imbalanced datasets (e.g., 99.99% malicious) produce near-random ROC-AUC (~0.50) and would corrupt the ensemble voting with false positives.
+        </p>
+        <p style="color:var(--text-dim);line-height:1.8;font-size:14px;margin-top:10px">
+          <strong style="color:var(--purple)">Multiclass stage (Stage 2):</strong> <strong>All 20 trained models</strong> are included for variant identification.
+          Some attack variants (e.g., Torii C&C, Mirai C&C, C&C-HeartBeat-Attack) only appear in specific datasets,
+          so all models are needed for <strong>complete variant coverage</strong>. The confidence-weighted voting system automatically
+          prioritizes predictions from the most accurate models, ensuring reliable results even with lower-accuracy models included.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Attack Variants Section -->
+  <section>
+    <div class="container">
+      <h2 class="section-title"><span class="icon">🧬</span> Detected Attack Variants</h2>
+      <p class="section-desc">Malware families identified by the multiclass XGBoost variant detection models</p>
+      <div class="variants-grid" id="variantsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section>
+    <div class="container">
+      <h2 class="section-title"><span class="icon">📐</span> Selected Features</h2>
+      <p class="section-desc">19 network traffic features from IoT-23 Zeek connection logs — each model selects a dynamic subset (13–19)</p>
+      <div class="features-grid" id="features"></div>
+    </div>
+  </section>
+
+  <!-- Live Detection -->
+  <section>
+    <div class="container">
+      <h2 class="section-title"><span class="icon">🔍</span> Live Malware Detection</h2>
+      <p class="section-desc">Two-stage detection: Binary ensemble identifies threats → Multiclass model reveals the attack variant</p>
+
+      <div class="detect-upload-zone" id="uploadZone">
+        <div class="upload-icon">📂</div>
+        <p class="upload-title">Drop file here or click to upload</p>
+        <p class="upload-hint">Supports .csv and .parquet files · Max 20MB</p>
+        <input type="file" id="detectFile" accept=".csv,.parquet" style="display:none">
+      </div>
+
+      <div id="detectControls" style="display:none">
+        <div class="detect-file-info">
+          <span id="detectFileName"></span>
+          <button class="btn-remove" onclick="clearDetection()">✕ Remove</button>
+        </div>
+        <div class="detect-settings">
+          <label>Threshold: <strong id="threshVal">0.75</strong></label>
+          <input type="range" id="detectThreshold" min="0" max="1" step="0.05" value="0.75"
+            oninput="document.getElementById('threshVal').textContent=parseFloat(this.value).toFixed(2)">
+          <label>Combine Rule:</label>
+          <select id="detectCombine">
+            <option value="mean">Mean</option>
+            <option value="max">Max</option>
+          </select>
+          <button class="btn-detect" id="btnDetect" onclick="runDetection()">🔍 Run Detection</button>
+        </div>
+      </div>
+
+      <div id="detectProgress" style="display:none">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p class="progress-text" id="progressText">Analyzing...</p>
+      </div>
+
+      <!-- Detection Results -->
+      <div id="detectResults" style="display:none">
+        <div class="stats-grid" style="margin-top:24px">
+          <div class="stat-card glass"><span class="value" id="det-total">—</span><span class="label">Total Packets</span></div>
+          <div class="stat-card glass"><span class="value detect-benign" id="det-benign">—</span><span class="label">✅ Allowed</span></div>
+          <div class="stat-card glass"><span class="value detect-malicious" id="det-malicious">—</span><span class="label">❌ Dropped</span></div>
+          <div class="stat-card glass"><span class="value" id="det-threat">—</span><span class="label">Threat Level</span></div>
+        </div>
+
+        <div class="charts-grid" style="margin-top:24px">
+          <div class="chart-card glass">
+            <h3>🎯 Threat Breakdown</h3><canvas id="detectPieChart"></canvas>
+          </div>
+          <div class="chart-card glass">
+            <h3>🧬 Attack Variants Detected</h3><canvas id="detectVariantChart"></canvas>
+          </div>
+          <div class="chart-card glass">
+            <h3>📊 Probability Distribution</h3><canvas id="detectHistChart"></canvas>
+          </div>
+          <div class="chart-card glass chart-full">
+            <h3>🏆 Model Detection Counts</h3><canvas id="detectModelChart"></canvas>
+          </div>
+        </div>
+
+        <div class="detect-tabs">
+          <button class="tab-btn active" onclick="switchTab('allowed')">✅ Allowed Packets (<span id="tab-ben-count">0</span>)</button>
+          <button class="tab-btn" onclick="switchTab('dropped')">❌ Dropped Packets (<span id="tab-mal-count">0</span>)</button>
+        </div>
+        <div class="table-wrapper glass" id="detectTableWrap">
+          <table>
+            <thead id="detectTHead"></thead>
+            <tbody id="detectTBody"></tbody>
+          </table>
+        </div>
+
+        <div style="text-align:center;margin-top:20px">
+          <button class="btn-detect" onclick="downloadResults('allowed')">📥 Download Allowed</button>
+          <button class="btn-detect" style="background:linear-gradient(135deg,#ef4444,#f59e0b)" onclick="downloadResults('dropped')">📥 Download Dropped</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>MIRAI — IoT-23 Malware Detection System · Capstone Project 2025-26</p>
+      <p style="margin-top:4px;opacity:0.6">Built with XGBoost · Chart.js · Flask · Powered by <a
+          href="https://www.stratosphereips.org/datasets-iot23" target="_blank">IoT-23 Dataset</a></p>
+    </div>
+  </footer>
+
+  <script src="dashboard_data.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+
+</html>

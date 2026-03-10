@@ -1,0 +1,29 @@
+{
+  "dataset": "dataset22",
+  "timestamp": "2026-03-01T13:14:22.248870Z",
+  "model_path": "/content/drive/MyDrive/IOT23_Models/dataset22/model.xgb",
+  "test_metrics": {
+    "n": 8198979,
+    "class_counts": {
+      "0": 4721,
+      "1": 8194258
+    },
+    "roc_auc": 0.5265772645318153,
+    "pr_auc": 0.99944435660577,
+    "best_threshold_by_f1": 0.0020999638363718987,
+    "best_f1": 0.9997201867246873,
+    "chosen_threshold": 0.0005612502573058009,
+    "confusion_chosen_thresh": {
+      "tn": 0,
+      "fp": 4721,
+      "fn": 0,
+      "tp": 8194258
+    },
+    "accuracy_chosen_thresh": 0.9994241965981374,
+    "recall_at_fpr_0.01": 0.0,
+    "recall_at_fpr_0.005": 0.0,
+    "recall_at_fpr_0.001": 0.0,
+    "probs_mean": 0.003481516847386956
+  },
+  "test_rows": 8198979
+}

@@ -1,0 +1,14 @@
+{
+  "dataset": "dataset13",
+  "timestamp": "2026-03-01T13:13:24.794567Z",
+  "model_path": "/content/drive/MyDrive/IOT23_Models/dataset13/model.xgb",
+  "test_metrics": {
+    "n": 663,
+    "class_counts": {
+      "0": 663
+    },
+    "note": "single_class",
+    "accuracy_default_thresh": 1.0
+  },
+  "test_rows": 663
+}

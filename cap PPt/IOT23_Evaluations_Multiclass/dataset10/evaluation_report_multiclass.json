@@ -1,0 +1,115 @@
+{
+  "dataset": "dataset10",
+  "timestamp": "2026-03-10T15:53:30.323442Z",
+  "model_path": "/content/drive/MyDrive/IOT23_Models_Multiclass/dataset10/model_multiclass.xgb",
+  "test_metrics": {
+    "n": 509151,
+    "class_counts": {
+      "0": 498,
+      "1": 378,
+      "2": 354,
+      "4": 360,
+      "5": 507561
+    },
+    "n_classes_in_test": 5,
+    "majority_class_share": 0.996877154321606,
+    "accuracy": 0.9985623125556072,
+    "f1_macro": 0.5324607885354521,
+    "f1_weighted": 0.9979718263462662,
+    "top1_error": 0.0014376874443927656,
+    "top2_accuracy": 0.9996877154321606,
+    "top3_accuracy": 0.9999980359461142,
+    "logloss": 0.008538651841913804,
+    "confusion_matrix": [
+      [
+        480,
+        0,
+        0,
+        0,
+        0,
+        18
+      ],
+      [
+        0,
+        378,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        354,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        360
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        507561
+      ]
+    ],
+    "probs_mean": 0.1666666716337204,
+    "predicted_class_mean": 4.989535520896552,
+    "per_class_metrics": {
+      "0": {
+        "precision": 1.0,
+        "recall": 0.963855421686747,
+        "f1": 0.9815950920245399,
+        "support": 498
+      },
+      "1": {
+        "precision": 0.5163934426229508,
+        "recall": 1.0,
+        "f1": 0.6810810810810811,
+        "support": 378
+      },
+      "2": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 354
+      },
+      "3": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "4": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 360
+      },
+      "5": {
+        "precision": 0.999255816151152,
+        "recall": 1.0,
+        "f1": 0.9996277695716396,
+        "support": 507561
+      }
+    }
+  },
+  "test_rows": 509151
+}

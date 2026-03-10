@@ -1,0 +1,94 @@
+{
+  "dataset": "dataset16",
+  "timestamp": "2026-03-10T16:05:56.191988Z",
+  "model_path": "/content/drive/MyDrive/IOT23_Models_Multiclass/dataset16/model_multiclass.xgb",
+  "test_metrics": {
+    "n": 1567153,
+    "class_counts": {
+      "0": 1229520,
+      "2": 1,
+      "4": 337632
+    },
+    "n_classes_in_test": 3,
+    "majority_class_share": 0.7845564536455598,
+    "accuracy": 0.7845532631466104,
+    "f1_macro": 0.29309044429537817,
+    "f1_weighted": 0.6898379987213501,
+    "top1_error": 0.21544673685338955,
+    "top2_accuracy": 0.7845564536455598,
+    "top3_accuracy": 0.8604124804661701,
+    "logloss": 2.7161643008810747,
+    "confusion_matrix": [
+      [
+        1229515,
+        0,
+        0,
+        0,
+        5
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        337632,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "probs_mean": 0.20000000298023224,
+    "predicted_class_mean": 1.2761995797474785e-05,
+    "per_class_metrics": {
+      "0": {
+        "precision": 0.7845557662709585,
+        "recall": 0.9999959333723729,
+        "f1": 0.8792713328861345,
+        "support": 1229520
+      },
+      "1": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "2": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 1
+      },
+      "3": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0
+      },
+      "4": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 337632
+      }
+    }
+  },
+  "test_rows": 1567153
+}

@@ -1,0 +1,37 @@
+{
+  "dataset": "dataset1",
+  "timestamp": "2026-03-10T15:53:24.723233Z",
+  "model_path": "/content/drive/MyDrive/IOT23_Models_Multiclass/dataset1/model_multiclass.xgb",
+  "test_metrics": {
+    "n": 68,
+    "class_counts": {
+      "0": 68
+    },
+    "n_classes_in_test": 1,
+    "majority_class_share": 1.0,
+    "note": "degenerate_num_class_1",
+    "accuracy": 1.0,
+    "f1_macro": null,
+    "f1_weighted": null,
+    "logloss": 0.0,
+    "top1_error": 0.0,
+    "top2_accuracy": 1.0,
+    "top3_accuracy": 1.0,
+    "probs_mean": 1.0,
+    "predicted_class_mean": 0.0,
+    "confusion_matrix": [
+      [
+        68
+      ]
+    ],
+    "per_class_metrics": {
+      "0": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 68
+      }
+    }
+  },
+  "test_rows": 68
+}

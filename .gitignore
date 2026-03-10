@@ -1,0 +1,48 @@
+# Large dataset files
+*.csv
+*.parquet
+*.csv.gz
+
+# XGBoost model files (too large for GitHub — download separately)
+# Uncomment the line below if you DON'T want to push models:
+# *.xgb
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Virtual environment
+venv/
+env/
+.env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Raw dataset folders (too large)
+dataset*/conn.log.*
+*.pcap
+
+# Gemini brain
+.gemini/
