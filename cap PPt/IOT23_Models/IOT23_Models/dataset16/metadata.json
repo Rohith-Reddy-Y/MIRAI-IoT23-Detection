@@ -1,0 +1,27 @@
+{
+  "dataset": "dataset16",
+  "feature_count": 18,
+  "train_rows": 7313451,
+  "val_rows": 1567183,
+  "test_rows": 1567153,
+  "created_at": "2026-01-19T15:22:18.167932+00:00",
+  "class_counts_train": {
+    "0": 5465860,
+    "1": 1847591
+  },
+  "class_counts_val": {
+    "0": 1567009,
+    "1": 174
+  },
+  "class_counts_test": {
+    "0": 1229520,
+    "1": 337633
+  },
+  "status": "libsvm_feature_index_mismatch",
+  "libsvm_check": {
+    "file": "train.svm",
+    "expected": 18,
+    "quick_max": 17,
+    "full_max": 17
+  }
+}

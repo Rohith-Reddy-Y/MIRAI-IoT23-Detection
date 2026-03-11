@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "dataset": "dataset4",
+    "task": "multiclass_variant_detection",
+    "feature_count": 16,
+    "train_rows": 4464806,
+    "val_rows": 956744,
+    "test_rows": 956743,
+    "num_class": 2,
+    "train_classes": [
+      0,
+      1
+    ],
+    "created_at": "2026-03-02T04:05:02.067657+00:00",
+    "class_counts_train": {
+      "0": 17248,
+      "1": 4447558
+    },
+    "class_counts_val": {
+      "0": 2882,
+      "1": 953862
+    },
+    "class_counts_test": {
+      "0": 2418,
+      "1": 954325
+    }
+  },
+  "metrics": {
+    "validation": {
+      "n": 956744,
+      "class_counts": {
+        "0": 2882,
+        "1": 953862
+      },
+      "accuracy": 1.0,
+      "f1_macro": 1.0,
+      "f1_weighted": 1.0,
+      "logloss": 7.808765436226316e-07,
+      "confusion_matrix": [
+        [
+          2882,
+          0
+        ],
+        [
+          0,
+          953862
+        ]
+      ],
+      "probs_mean": 0.4999999701976776
+    },
+    "test": {
+      "n": 956743,
+      "class_counts": {
+        "0": 2418,
+        "1": 954325
+      },
+      "accuracy": 0.9999968643616938,
+      "f1_macro": 0.999688847873291,
+      "f1_weighted": 0.9999968633909619,
+      "logloss": 4.545545634583469e-05,
+      "confusion_matrix": [
+        [
+          2415,
+          3
+        ],
+        [
+          0,
+          954325
+        ]
+      ],
+      "probs_mean": 0.4999999701976776
+    },
+    "train": {
+      "n": 4464806,
+      "class_counts": {
+        "0": 17248,
+        "1": 4447558
+      },
+      "accuracy": 0.9999993280783085,
+      "f1_macro": 0.9999563442838559,
+      "f1_weighted": 0.9999993280492018,
+      "logloss": 1.0553449689360536e-05,
+      "confusion_matrix": [
+        [
+          17245,
+          3
+        ],
+        [
+          0,
+          4447558
+        ]
+      ],
+      "probs_mean": 0.4999999403953552
+    }
+  }
+}

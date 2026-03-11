@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "dataset": "dataset11",
+    "task": "multiclass_variant_detection",
+    "feature_count": 14,
+    "train_rows": 166,
+    "val_rows": 35,
+    "test_rows": 36,
+    "num_class": 3,
+    "train_classes": [
+      0,
+      1,
+      2
+    ],
+    "created_at": "2026-03-02T06:11:27.949562+00:00",
+    "class_counts_train": {
+      "0": 141,
+      "1": 14,
+      "2": 11
+    },
+    "class_counts_val": {
+      "0": 35
+    },
+    "class_counts_test": {
+      "0": 35,
+      "3": 1
+    }
+  },
+  "metrics": {
+    "validation": {
+      "n": 35,
+      "class_counts": {
+        "0": 35
+      },
+      "accuracy": 1.0,
+      "f1_macro": 1.0,
+      "f1_weighted": 1.0,
+      "logloss": null,
+      "confusion_matrix": [
+        [
+          35,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "probs_mean": 0.3333333432674408
+    },
+    "test": {
+      "n": 36,
+      "class_counts": {
+        "0": 35,
+        "3": 1
+      },
+      "accuracy": 0.9722222222222222,
+      "f1_macro": 0.49295774647887325,
+      "f1_weighted": 0.958528951486698,
+      "logloss": null,
+      "confusion_matrix": [
+        [
+          35,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "probs_mean": 0.3333333432674408
+    },
+    "train": {
+      "n": 166,
+      "class_counts": {
+        "0": 141,
+        "1": 14,
+        "2": 11
+      },
+      "accuracy": 1.0,
+      "f1_macro": 1.0,
+      "f1_weighted": 1.0,
+      "logloss": 0.010206325483866473,
+      "confusion_matrix": [
+        [
+          141,
+          0,
+          0
+        ],
+        [
+          0,
+          14,
+          0
+        ],
+        [
+          0,
+          0,
+          11
+        ]
+      ],
+      "probs_mean": 0.3333333432674408
+    }
+  }
+}

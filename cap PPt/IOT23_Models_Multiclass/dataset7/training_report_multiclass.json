@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "dataset": "dataset7",
+    "task": "multiclass_variant_detection",
+    "feature_count": 15,
+    "train_rows": 2506741,
+    "val_rows": 537186,
+    "test_rows": 537101,
+    "num_class": 3,
+    "train_classes": [
+      0,
+      1,
+      2
+    ],
+    "created_at": "2026-03-02T04:51:32.185247+00:00",
+    "class_counts_train": {
+      "0": 1835,
+      "1": 95,
+      "2": 2504811
+    },
+    "class_counts_val": {
+      "0": 312,
+      "2": 536874
+    },
+    "class_counts_test": {
+      "0": 329,
+      "2": 536772
+    }
+  },
+  "metrics": {
+    "validation": {
+      "n": 537186,
+      "class_counts": {
+        "0": 312,
+        "2": 536874
+      },
+      "accuracy": 0.9994191955858864,
+      "f1_macro": 0.4998547567175018,
+      "f1_weighted": 0.9991288777367692,
+      "logloss": null,
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          312
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          536874
+        ]
+      ],
+      "probs_mean": 0.3333333432674408
+    },
+    "test": {
+      "n": 537101,
+      "class_counts": {
+        "0": 329,
+        "2": 536772
+      },
+      "accuracy": 0.9993874522668921,
+      "f1_macro": 0.49984681615051313,
+      "f1_weighted": 0.9990812722327578,
+      "logloss": null,
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          329
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          536772
+        ]
+      ],
+      "probs_mean": 0.3333333432674408
+    },
+    "train": {
+      "n": 2506741,
+      "class_counts": {
+        "0": 1835,
+        "1": 95,
+        "2": 2504811
+      },
+      "accuracy": 0.9992300760230115,
+      "f1_macro": 0.3332049632529005,
+      "f1_weighted": 0.9988452622873216,
+      "logloss": 0.006440496766272552,
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          1835
+        ],
+        [
+          0,
+          0,
+          95
+        ],
+        [
+          0,
+          0,
+          2504811
+        ]
+      ],
+      "probs_mean": 0.3333333432674408
+    }
+  }
+}

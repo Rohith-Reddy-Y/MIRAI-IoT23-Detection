@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "dataset": "dataset20",
+    "task": "multiclass_variant_detection",
+    "feature_count": 15,
+    "train_rows": 2300,
+    "val_rows": 493,
+    "test_rows": 493,
+    "train_classes": [
+      0,
+      1
+    ],
+    "num_class": 2,
+    "created_at": "2026-03-08T13:45:03.148879+00:00",
+    "class_counts_train": {
+      "0": 2287,
+      "1": 13
+    },
+    "class_counts_val": {
+      "0": 493
+    },
+    "class_counts_test": {
+      "0": 492,
+      "1": 1
+    }
+  },
+  "metrics": {
+    "validation": {
+      "n": 493,
+      "class_counts": {
+        "0": 493
+      },
+      "accuracy": 1.0,
+      "f1_macro": 1.0,
+      "f1_weighted": 1.0,
+      "logloss": 0.00018860687276019402,
+      "confusion_matrix": [
+        [
+          493,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "probs_mean": 0.5
+    },
+    "test": {
+      "n": 493,
+      "class_counts": {
+        "0": 492,
+        "1": 1
+      },
+      "accuracy": 0.9979716024340771,
+      "f1_macro": 0.49949238578680205,
+      "f1_weighted": 0.9969584332945501,
+      "logloss": 0.002048705932120164,
+      "confusion_matrix": [
+        [
+          492,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "probs_mean": 0.5
+    },
+    "train": {
+      "n": 2300,
+      "class_counts": {
+        "0": 2287,
+        "1": 13
+      },
+      "accuracy": 1.0,
+      "f1_macro": 1.0,
+      "f1_weighted": 1.0,
+      "logloss": 0.0006416465607191742,
+      "confusion_matrix": [
+        [
+          2287,
+          0
+        ],
+        [
+          0,
+          13
+        ]
+      ],
+      "probs_mean": 0.5
+    }
+  }
+}
